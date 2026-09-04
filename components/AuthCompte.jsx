@@ -150,7 +150,7 @@ export default function AuthCompte() {
       <style>{`
         @keyframes tekcaCheckDraw { from { stroke-dashoffset: 48; } to { stroke-dashoffset: 0; } }
         @keyframes tekcaPopIn { 0% { opacity: 0; transform: scale(0.85) translateY(8px); } 100% { opacity: 1; transform: scale(1) translateY(0); } }
-        @keyframes tekcaShake { 0%, 100% { transform: translateX(0); } 20% { transform: translateX(-4px); } 40% { transform: translateX(4px); } 60% { transform: translateX(-3px); } 80% { transform: translateX(2px); } }
+        @keyframes tekcaShake { 0%, 100% { transform: translateX(0); } 20% { transform: translateX(-4px); } 40% { transform: translateX(4px); } 60% { transform: translateX(-3px); } 80% { transform: translateX(4px); } }
         @keyframes tekcaSpin { to { transform: rotate(360deg); } }
         .tekca-pop { animation: tekcaPopIn 0.4s ease-out both; }
         .tekca-shake { animation: tekcaShake 0.4s ease-in-out; }
@@ -171,7 +171,7 @@ export default function AuthCompte() {
           <div className="absolute inset-0 z-20 flex flex-col items-center justify-center p-6 tekca-pop" style={{ background: COLORS.background }}>
             <svg width="56" height="56" viewBox="0 0 52 52">
               <circle cx="26" cy="26" r="24" fill="none" stroke="#3A8A5C" strokeWidth="2.5" opacity="0.3" />
-              <path d="M15 27l7 7 15-15" fill="none" stroke="#3A8A5C" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="48" style={{ animation: "tekcaCheckDraw 0.5s ease-in-out" }} />
+              <path d="M15 27l7 7 15-15" fill="none" stroke="#3A8A5C" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="48" style={{ animation: "tekcaCheckDraw 0.5s ease-out forwards" }} />
             </svg>
             <p className="text-base font-bold mt-4">{mode === "connexion" ? "Connexion réussie" : "Compte créé !"}</p>
             <p className="text-xs mt-1 text-center" style={{ color: COLORS.textMuted }}>
@@ -210,7 +210,7 @@ export default function AuthCompte() {
             style={{ background: "#1877F2", color: "#fff" }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff">
-              <path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.7 4.53-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88v2.26h3.32l-.53 3.49h-2.79V24c5.74-.91 10.13-5.9 10.13-11.93z" />
+              <path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.7 4.53-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88V13h3.31l-.53 3.49h-2.78V24c5.74-.91 10.13-5.9 10.13-12z" />
             </svg>
             {enCoursSocial === "facebook" ? t("auth.unInstant") : "Continuer avec Facebook"}
           </button>
@@ -221,7 +221,7 @@ export default function AuthCompte() {
             style={{ background: theme === "sombre" ? "#fff" : "#111", color: theme === "sombre" ? "#111" : "#fff" }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill={theme === "sombre" ? "#111" : "#fff"}>
-              <path d="M16.36 1c.15 1.05-.29 2.1-.94 2.86-.68.78-1.78 1.38-2.86 1.3-.16-1.02.34-2.08.98-2.79.71-.78 1.9-1.36 2.82-1.37zm3.36 6.14c-1.55-.09-2.87.87-3.61.87-.75 0-1.86-.85-3.06-.83-1.57.03-3.02.91-3.83 2.32-.81 1.4-1.09 3.47-.34 5.02.7 1.43 2.03 2.34 3.51 2.47 1.06.08 2.07-.58 2.75-.58.69 0 1.72.72 2.86.62 1.48-.12 2.41-1.19 3.07-2.59.42-.8.7-1.7.85-2.64-2.25-1.08-3.68-3.13-3.68-5.54 0-.98.35-1.89.95-2.55-1.37-.25-2.65.21-3.48 1.1z" />
+              <path d="M16.36 1c.15 1.05-.29 2.1-.94 2.86-.68.78-1.78 1.38-2.86 1.3-.16-1.02.34-2.08.98-2.79.71-.78 1.9-1.36 2.82-1.37zm3.36 6.14c-1.55-.09-2.87.87-3.61.87-.75 0-1.86-.85-3.06-.83-1.27.02-2.44.74-3.08 1.9-.84 1.56-.77 3.87.54 5.25.67.77 1.47 1.62 2.51 1.59 1.01-.03 1.39-.65 2.59-.65 1.19 0 1.53.65 2.59.62 1.07-.02 1.74-.79 2.4-1.55 1.03-1.18 1.46-2.71 1.49-4.4-.02-.13-.58-1.84-2.37-2.12z" />
             </svg>
             {enCoursSocial === "apple" ? t("auth.unInstant") : "Continuer avec Apple"}
           </button>
