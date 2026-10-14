@@ -1,7 +1,7 @@
 -- ============================================================
 -- AUTHENTIFICATION — trigger de création de profil + support du
 -- rate limiting de connexion
--- À exécuter APRÈS schema.sql et rls_policies.sql
+-- À exécuter APRÈS schema.sql et rls_policies.sql  
 -- ============================================================
 
 -- ------------------------------------------------------------
