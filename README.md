@@ -5,7 +5,7 @@ Projet Next.js (App Router) assemblé à partir de tous les composants validés.
 ## Installation
 
 ```bash
-npm install
+npm installe
 ```
 
 ## Lancer en développement
