@@ -1,0 +1,72 @@
+{
+  "name": "TEKÇA — Marketplace gaming",
+  "short_name": "TEKÇA",
+  "description": "Recharges, accessoires, vêtements et marketplace gaming en Afrique.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#E85D2F",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "id": "/",
+  "lang": "fr",
+  "orientation": "portrait",
+  "categories": [
+    "shopping",
+    "games"
+  ],
+  "shortcuts": [
+    {
+      "name": "Le Marché",
+      "short_name": "Marché",
+      "url": "/marche",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Mon panier",
+      "short_name": "Panier",
+      "url": "/panier",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Messages",
+      "short_name": "Messages",
+      "url": "/messages",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}
