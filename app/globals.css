@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #0B0A0A;
+}
+
+/*
+  Retour visuel au toucher : un bouton, un lien ou un menu s'enfonce
+  légèrement quand on appuie dessus, pour que l'utilisateur sente que
+  son doigt a bien été pris en compte. On utilise la propriété `scale`
+  (et non `transform`) pour ne pas écraser les positionnements existants.
+*/
+button:not(:disabled), a[href], [role="button"], label[for], summary {
+  -webkit-tap-highlight-color: rgba(232, 93, 47, 0.18);
+  touch-action: manipulation;
+  transition: scale 90ms ease, opacity 90ms ease, filter 90ms ease;
+}
+button:not(:disabled):active, a[href]:active, [role="button"]:active, summary:active {
+  scale: 0.96;
+  opacity: 0.82;
+  filter: brightness(0.92);
+}
+/* Effet posé par components/RetourToucher.jsx : reste visible ~170 ms minimum. */
+[data-appui] {
+  scale: 0.94;
+  opacity: 0.72;
+  filter: brightness(0.85);
+  box-shadow: 0 0 0 3px rgba(232, 93, 47, 0.35);
+}
+@media (prefers-reduced-motion: reduce) {
+  button:not(:disabled):active, a[href]:active, [role="button"]:active, summary:active, [data-appui] { scale: 1; }
+}
+
+
+/* ============================================================
+   AFFICHAGE PC (écrans ≥ 1024 px). Le téléphone n'est PAS touché :
+   tout ce bloc ne s'applique que sur grand écran.
+   Avant, chaque page était limitée à une colonne de 448 px centrée,
+   donc beaucoup de vide sur ordinateur.
+   ============================================================ */
+@media (min-width: 1024px) {
+  /* Barres fixes (en-têtes, filtres, barres du bas) : leur contenu s'aligne sur la largeur du site (72 rem)
+     au lieu de coller aux bords de l'écran. */
+  .barre-pc {
+    padding-left: max(1rem, calc((100% - 72rem) / 2)) !important;
+    padding-right: max(1rem, calc((100% - 72rem) / 2)) !important;
+  }
+
+  /* Variante pour les pages de discussion (colonne de 48 rem) : la barre de saisie s'aligne sur le fil. */
+  .barre-pc-3xl {
+    padding-left: max(1rem, calc((100% - 48rem) / 2)) !important;
+    padding-right: max(1rem, calc((100% - 48rem) / 2)) !important;
+  }
+
+  /* Navigation du bas : barre flottante centrée, plutôt qu'une bande sur toute la largeur. */
+  .nav-bas-pc {
+    left: 50% !important;
+    right: auto !important;
+    bottom: 0.75rem !important;
+    width: min(34rem, 92vw);
+    transform: translateX(-50%);
+    border-radius: 1rem;
+    border: 1px solid var(--nav-bordure, rgba(128, 128, 128, 0.3)) !important;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Fiche produit : photos à gauche (qui restent visibles en défilant), informations à droite.
+     Le premier enfant du conteneur est la galerie photos. */
+  .fiche-2col {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 2rem;
+    align-items: start;
+  }
+  .fiche-2col > :first-child {
+    grid-column: 1;
+    grid-row: 1 / span 40;
+    position: sticky;
+    top: 5rem;
+  }
+  .fiche-2col > :not(:first-child) {
+    grid-column: 2;
+  }
+}
