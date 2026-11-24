@@ -1,0 +1,12 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/rappels-abonnement",
+      "schedule": "0 9 * * *"
+    },
+    {
+      "path": "/api/cron/demandes-vendeur-expirees",
+      "schedule": "0 10 * * *"
+    }
+  ]
+}
